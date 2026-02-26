@@ -322,6 +322,10 @@ ul {
     color: var(--color-gold);
 }
 
+.mobile-only-link {
+    display: none;
+}
+
 .nav-contact {
     display: flex;
     align-items: center;
@@ -1163,6 +1167,33 @@ ul {
 
     .nav-toggle {
         display: block;
+        color: var(--color-vinotinto);
+        font-size: 1.8rem;
+        padding: 0.3rem;
+    }
+
+    .desktop-only-btn {
+        display: none !important;
+    }
+
+    .mobile-only-link {
+        display: block;
+    }
+
+    .nav-contact {
+        gap: 1.5rem;
+    }
+
+    .navbar {
+        padding: 0.6rem 0;
+    }
+
+    .navbar.scrolled {
+        padding: 0.4rem 0;
+    }
+
+    .logo {
+        font-size: 1.4rem;
     }
 
     .nav-links {
