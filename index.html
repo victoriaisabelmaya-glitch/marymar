@@ -34,6 +34,11 @@
             </ul>
             <div class="nav-contact">
                 <a href="#contacto" class="btn btn-outline-gold btn-sm">Contacto</a>
+                <!-- Icono del Carrito (Mobile & Desktop) -->
+                <div class="cart-icon" id="cart-icon">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-count badge" id="cart-count">0</span>
+                </div>
                 <!-- Menú hamburguesa -->
                 <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú">
                     <i class="fa-solid fa-bars"></i>
@@ -41,6 +46,24 @@
             </div>
         </div>
     </nav>
+
+    <!-- MODAL DEL CARRITO DE WHATSAPP -->
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-content">
+            <span class="close-cart" id="close-cart"><i class="fa-solid fa-xmark"></i></span>
+            <h3 class="text-vinotinto" style="font-family:var(--font-heading); margin-bottom:1rem;">Tu Pedido</h3>
+            <div id="cart-items" class="cart-items">
+                <!-- Items se generarán con JS -->
+                <p>Tu carrito está vacío.</p>
+            </div>
+            <div class="cart-total">
+                <strong>Total: </strong> <span id="cart-total-price">$0.00</span>
+            </div>
+            <button class="btn btn-whatsapp w-100" id="checkout-btn">
+                <i class="fa-brands fa-whatsapp"></i> Finalizar Compra por WhatsApp
+            </button>
+        </div>
+    </div>
 
     <!-- INICIO (Hero Section) -->
     <header id="inicio" class="hero">
@@ -90,12 +113,8 @@
     </section>
 
     <!-- LA EXPERIENCIA MARYMAR -->
-    <section id="experiencia" class="experiencia section bg-cream"
-        style="position: relative; background: url('imagenes/combinacionqueso.JPG') center/cover fixed;">
-        <div
-            style="position: absolute; top:0; left:0; width:100%; height:100%; background-color: rgba(255, 255, 255, 0.85); z-index: 1;">
-        </div>
-        <div class="container" style="position: relative; z-index: 2;">
+    <section id="experiencia" class="experiencia section bg-cream">
+        <div class="container">
             <div class="text-center fade-in-up">
                 <span class="badge"
                     style="background-color: var(--color-gold); color: white; padding: 0.5rem 1.2rem; border-radius: 25px; margin-bottom: 1rem; display: inline-block;">La
@@ -108,28 +127,32 @@
 
             <div class="grid exp-grid">
                 <!-- Tarjeta 1 -->
-                <article class="exp-card shadow-sm fade-in-up">
+                <article class="exp-card shadow-sm fade-in-up"
+                    style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('imagenes/momentosespeciales.JPG') center/cover; color: white;">
                     <div class="exp-icon"><i class="fa-solid fa-wine-glass"></i></div>
-                    <h3>Momentos Especiales</h3>
+                    <h3 class="text-white">Momentos Especiales</h3>
                     <p>El acompañante perfecto para una tarde de vino, tabla de quesos y galletas en compañía de amigos
                         o familia.</p>
                 </article>
                 <!-- Tarjeta 2 -->
-                <article class="exp-card shadow-sm fade-in-up">
+                <article class="exp-card shadow-sm fade-in-up"
+                    style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('imagenes/enlacocina.JPG') center/cover; color: white;">
                     <div class="exp-icon"><i class="fa-solid fa-fire-burner"></i></div>
-                    <h3>En la Cocina</h3>
+                    <h3 class="text-white">En la Cocina</h3>
                     <p>Utilízala para realzar ensaladas, guisos y salsas innovadoras.</p>
                 </article>
                 <!-- Tarjeta 3 -->
-                <article class="exp-card shadow-sm fade-in-up">
+                <article class="exp-card shadow-sm fade-in-up"
+                    style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('imagenes/platosfuertes.JPG') center/cover; color: white;">
                     <div class="exp-icon"><i class="fa-solid fa-burger"></i></div>
-                    <h3>Platos Fuertes</h3>
+                    <h3 class="text-white">Platos Fuertes</h3>
                     <p>El complemento ideal para carnes blancas, cerdo o hamburguesas gourmet.</p>
                 </article>
                 <!-- Tarjeta 4 -->
-                <article class="exp-card shadow-sm fade-in-up">
+                <article class="exp-card shadow-sm fade-in-up"
+                    style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('imagenes/cateringyeventos.JPG') center/cover; color: white;">
                     <div class="exp-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
-                    <h3>Catering y Eventos</h3>
+                    <h3 class="text-white">Catering y Eventos</h3>
                     <p>Perfectas para reuniones familiares, corporativas, catas y celebraciones.</p>
                 </article>
             </div>
@@ -170,8 +193,8 @@
                             <span class="price">$6.5</span>
                         </div>
                         <p class="product-description">El alma del ají dulce venezolano.</p>
-                        <button class="btn btn-whatsapp wp-btn" data-product="Mermelada Original (230g)"><i
-                                class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp</button>
+                        <button class="btn btn-outline-gold wp-btn add-to-cart-btn"
+                            data-product="Mermelada Original (230g)" data-price="6.5">Añadir al Carrito</button>
                     </div>
                 </article>
                 <!-- Producto 2 -->
@@ -187,8 +210,9 @@
                             <span class="price">$6.5</span>
                         </div>
                         <p class="product-description">Versión saludable, orgánica y sin azúcar añadida.</p>
-                        <button class="btn btn-whatsapp wp-btn" data-product="Mermelada Original con Stevia (230g)"><i
-                                class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp</button>
+                        <button class="btn btn-outline-gold wp-btn add-to-cart-btn"
+                            data-product="Mermelada Original con Stevia (230g)" data-price="6.5">Añadir al
+                            Carrito</button>
                     </div>
                 </article>
                 <!-- Producto 3 -->
@@ -203,8 +227,8 @@
                             <span class="price">$6.5</span>
                         </div>
                         <p class="product-description">Un toque cítrico, vibrante y nuevo sabor de la casa.</p>
-                        <button class="btn btn-whatsapp wp-btn" data-product="Mermelada de Parchita (230g)"><i
-                                class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp</button>
+                        <button class="btn btn-outline-gold wp-btn add-to-cart-btn"
+                            data-product="Mermelada de Parchita (230g)" data-price="6.5">Añadir al Carrito</button>
                     </div>
                 </article>
                 <!-- Producto 4 -->
@@ -219,8 +243,8 @@
                             <span class="price">$6.5</span>
                         </div>
                         <p class="product-description">Dulzor tropical inconfundible que resalta el aroma del ají.</p>
-                        <button class="btn btn-whatsapp wp-btn" data-product="Mermelada de Mango (230g)"><i
-                                class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp</button>
+                        <button class="btn btn-outline-gold wp-btn add-to-cart-btn"
+                            data-product="Mermelada de Mango (230g)" data-price="6.5">Añadir al Carrito</button>
                     </div>
                 </article>
                 <!-- Producto 5 -->
@@ -236,8 +260,8 @@
                         </div>
                         <p class="product-description">El equilibrio perfecto entre la acidez del fruto y el dulzor del
                             ají.</p>
-                        <button class="btn btn-whatsapp wp-btn" data-product="Mermelada de Tamarindo (230g)"><i
-                                class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp</button>
+                        <button class="btn btn-outline-gold wp-btn add-to-cart-btn"
+                            data-product="Mermelada de Tamarindo (230g)" data-price="6.5">Añadir al Carrito</button>
                     </div>
                 </article>
             </div>
@@ -259,8 +283,8 @@
                             <span class="price">$3.0</span>
                         </div>
                         <p class="product-description">Un snack saludable o aperitivo crujiente 100% natural.</p>
-                        <button class="btn btn-whatsapp wp-btn" data-product="Ají Deshidratado"><i
-                                class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp</button>
+                        <button class="btn btn-outline-gold wp-btn add-to-cart-btn" data-product="Ají Deshidratado"
+                            data-price="3">Añadir al Carrito</button>
                     </div>
                 </article>
                 <!-- Derivado 2 -->
@@ -276,8 +300,8 @@
                         </div>
                         <p class="product-description">Aliño deshidratado ideal para potenciar el sabor de tus guisos y
                             comidas.</p>
-                        <button class="btn btn-whatsapp wp-btn" data-product="Sabroseador"><i
-                                class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp</button>
+                        <button class="btn btn-outline-gold wp-btn add-to-cart-btn" data-product="Sabroseador"
+                            data-price="2">Añadir al Carrito</button>
                     </div>
                 </article>
                 <!-- Derivado 3 -->
@@ -293,8 +317,8 @@
                         </div>
                         <p class="product-description">Elaborada con Cacao Orgánico de Choroní y trozos de ají dulce
                             MaryMar.</p>
-                        <button class="btn btn-whatsapp wp-btn" data-product="Barra de chocolate 70% con ají"><i
-                                class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp</button>
+                        <button class="btn btn-outline-gold wp-btn add-to-cart-btn"
+                            data-product="Barra de chocolate 70% con ají" data-price="5">Añadir al Carrito</button>
                     </div>
                 </article>
                 <!-- Derivado 4 -->
@@ -308,8 +332,8 @@
                             <span class="weight">Pura</span>
                             <span class="price">$5.0</span>
                         </div>
-                        <button class="btn btn-whatsapp wp-btn" data-product="Pasta de cacao"><i
-                                class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp</button>
+                        <button class="btn btn-outline-gold wp-btn add-to-cart-btn" data-product="Pasta de cacao"
+                            data-price="5">Añadir al Carrito</button>
                     </div>
                 </article>
 
@@ -338,8 +362,8 @@
                         <li><i class="fa-solid fa-check"></i> 2 Mermeladas a elección (230g)</li>
                     </ul>
                     <div class="combo-price">$13.0</div>
-                    <button class="btn btn-primary wp-btn" data-product="Combo: Dúo de Mermeladas (13$)">Ordenar
-                        Duo</button>
+                    <button class="btn btn-outline-gold wp-btn add-to-cart-btn" data-product="Combo: Dúo de Mermeladas"
+                        data-price="13">Añadir al Carrito</button>
                 </div>
 
                 <!-- Combo 2 -->
@@ -353,8 +377,8 @@
                         <li><i class="fa-solid fa-check"></i> 2 Mini mermeladas (30g)</li>
                     </ul>
                     <div class="combo-price">$5.0</div>
-                    <button class="btn btn-primary wp-btn"
-                        data-product="Combo: Degustación 2 Mini mermeladas (5$)">Ordenar Degustación</button>
+                    <button class="btn btn-outline-gold wp-btn add-to-cart-btn"
+                        data-product="Combo: Degustación 2 Mini mermeladas" data-price="5">Añadir al Carrito</button>
                 </div>
 
                 <!-- Combo 3 -->
@@ -367,8 +391,8 @@
                         <li><i class="fa-solid fa-check"></i> 4 Mini mermeladas (30g)</li>
                     </ul>
                     <div class="combo-price">$10.0</div>
-                    <button class="btn btn-primary wp-btn"
-                        data-product="Combo: Degustación 4 Mini mermeladas (10$)">Ordenar Degustación</button>
+                    <button class="btn btn-outline-gold wp-btn add-to-cart-btn"
+                        data-product="Combo: Degustación 4 Mini mermeladas" data-price="10">Añadir al Carrito</button>
                 </div>
 
                 <!-- Combo Estrella -->
@@ -384,8 +408,8 @@
                         <li><i class="fa-solid fa-check"></i> Barra de chocolate & Bombones</li>
                     </ul>
                     <div class="combo-price text-gold">$32.0</div>
-                    <button class="btn btn-primary wp-btn w-100" data-product="¡Kit MaryMar! Completo (32$)">Ordenar el
-                        Kit Premium</button>
+                    <button class="btn btn-outline-gold wp-btn w-100 add-to-cart-btn"
+                        data-product="¡Kit MaryMar! Completo" data-price="32">Añadir al Carrito</button>
                 </div>
             </div>
         </div>

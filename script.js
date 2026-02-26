@@ -106,30 +106,128 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ==========================================
        5. INTEGRACIÓN DE PEDIDOS (WHATSAPP)
        ========================================== */
-    // Número exacto proporcionado por el usuario
+    let cart = [];
     const whatsappPhone = '584124024911';
 
-    const wpButtons = document.querySelectorAll('.wp-btn');
+    // Elementos del DOM
+    const cartIcon = document.getElementById('cart-icon');
+    const cartCount = document.getElementById('cart-count');
+    const cartModal = document.getElementById('cart-modal');
+    const closeCart = document.getElementById('close-cart');
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartTotalPrice = document.getElementById('cart-total-price');
+    const checkoutBtn = document.getElementById('checkout-btn');
+    const addButtons = document.querySelectorAll('.add-to-cart-btn');
 
-    wpButtons.forEach(button => {
+    // Abrir/Cerrar Modal
+    cartIcon.addEventListener('click', () => {
+        cartModal.classList.add('show');
+    });
+
+    closeCart.addEventListener('click', () => {
+        cartModal.classList.remove('show');
+    });
+
+    // Cerrar al hacer click fuera
+    cartModal.addEventListener('click', (e) => {
+        if (e.target === cartModal) cartModal.classList.remove('show');
+    });
+
+    // Añadir al Carrito
+    addButtons.forEach(button => {
         button.addEventListener('click', function (e) {
             e.preventDefault();
+            const product = this.getAttribute('data-product');
+            const price = parseFloat(this.getAttribute('data-price'));
 
-            // Obtener el nombre del producto desde el atributo "data-product"
-            const productName = this.getAttribute('data-product') || 'sus productos';
+            // Buscar si ya existe
+            const existingItem = cart.find(item => item.product === product);
 
-            // Mensaje predeterminado solicitado
-            const customMessage = `Hola MaryMar, deseo ordenar el producto: [${productName}]`;
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ product, price, quantity: 1 });
+            }
 
-            // Codificar el texto para la URL (convierte espacios en %20, etc.)
-            const encodedText = encodeURIComponent(customMessage);
+            updateCartUI();
 
-            // URL de la API de WhatsApp
-            const wpUrl = `https://wa.me/${whatsappPhone}?text=${encodedText}`;
+            // Animación visual en el botón
+            const originalText = this.innerHTML;
+            this.innerHTML = '<i class="fa-solid fa-check"></i> Añadido';
+            this.style.backgroundColor = 'var(--color-gold)';
+            this.style.color = 'white';
 
-            // Abrir en una nueva pestaña
-            window.open(wpUrl, '_blank');
+            setTimeout(() => {
+                this.innerHTML = originalText;
+                this.style.backgroundColor = '';
+                this.style.color = '';
+            }, 1000);
         });
+    });
+
+    // Actualizar UI del Carrito
+    function updateCartUI() {
+        // Actualizar contador
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        cartCount.textContent = totalItems;
+
+        // Limpiar contenedor
+        cartItemsContainer.innerHTML = '';
+        let total = 0;
+
+        if (cart.length === 0) {
+            cartItemsContainer.innerHTML = '<p>Tu carrito está vacío.</p>';
+        } else {
+            cart.forEach((item, index) => {
+                const subtotal = item.price * item.quantity;
+                total += subtotal;
+
+                const itemHTML = `
+                    <div class="cart-item">
+                        <div class="cart-item-info">
+                            <h5>${item.product} (x${item.quantity})</h5>
+                            <div class="cart-item-price">$${subtotal.toFixed(2)}</div>
+                        </div>
+                        <i class="fa-solid fa-trash cart-item-remove" data-index="${index}"></i>
+                    </div>
+                `;
+                cartItemsContainer.insertAdjacentHTML('beforeend', itemHTML);
+            });
+        }
+
+        // Actualizar total
+        cartTotalPrice.textContent = `$${total.toFixed(2)}`;
+
+        // Añadir eventos a botones de eliminar
+        document.querySelectorAll('.cart-item-remove').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const index = parseInt(this.getAttribute('data-index'));
+                cart.splice(index, 1);
+                updateCartUI();
+            });
+        });
+    }
+
+    // Finalizar Compra por WhatsApp
+    checkoutBtn.addEventListener('click', () => {
+        if (cart.length === 0) {
+            alert('Añade productos al carrito primero.');
+            return;
+        }
+
+        let orderList = cart.map(item => `- ${item.quantity}x ${item.product}`).join('\n');
+        let total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+        const customMessage = `Hola MaryMar, mi pedido es:\n\n${orderList}\n\nTotal a pagar: $${total.toFixed(2)}`;
+        const encodedText = encodeURIComponent(customMessage);
+        const wpUrl = `https://wa.me/${whatsappPhone}?text=${encodedText}`;
+
+        window.open(wpUrl, '_blank');
+
+        // Opcional: vaciar carrito luego de enviar
+        cart = [];
+        updateCartUI();
+        cartModal.classList.remove('show');
     });
 
     /* ==========================================
