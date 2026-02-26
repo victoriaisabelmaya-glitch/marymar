@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MaryMar | Mermeladas Artesanales</title>
+    <!-- SEO y Meta Tags -->
+    <meta name="description"
+        content="MaryMar - Mermeladas artesanales 100% naturales a base de Ají Dulce Margariteño y Llanero. Sintiendo y viviendo Venezuela.">
+    <!-- Google Fonts: Playfair Display (Elegante/Tradicional) y Lato (Limpio/Orgánico) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Hoja de Estilos -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- NAVEGACIÓN -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#inicio" class="logo">Mary<span>Mar</span></a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nuestra Esencia</a></li>
+                <li><a href="#productos">Catálogo</a></li>
+                <li><a href="#combos">Combos</a></li>
+            </ul>
+            <div class="nav-contact">
+                <a href="#contacto" class="btn btn-outline-gold btn-sm">Contacto</a>
+                <!-- Menú hamburguesa -->
+                <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- INICIO (Hero Section) -->
+    <header id="inicio" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content fade-in-up">
+            <h1 class="hero-title">Sintiendo y Viviendo Venezuela:<br>Un ají dulce a la vez</h1>
+            <p class="hero-subtitle">Mermeladas artesanales 100% naturales a base de Ají Dulce Margariteño y Llanero
+                (IGP)</p>
+            <a href="#productos" class="btn btn-primary">Ver Catálogo</a>
+        </div>
+    </header>
+
+    <!-- SOBRE NOSOTROS (Nuestra Esencia) -->
+    <section id="nosotros" class="about section bg-cream">
+        <div class="container grid about-grid">
+            <div class="about-text fade-in-up">
+                <h2 class="section-title">Nuestra Esencia</h2>
+                <div class="divider"></div>
+                <p>Somos una empresa de productos orgánicos dedicada a elevar los sabores de nuestra tierra. Trabajamos
+                    en equilibrio con la naturaleza gracias a nuestras alianzas directas con agricultores de
+                    <strong>Nueva Esparta</strong> y <strong>Lara</strong>, lo que nos permite seleccionar los mejores
+                    frutos orgánicos.
+                </p>
+                <p>El corazón de MaryMar es el emblemático ají dulce venezolano, transformado con pasión bajo nuestros
+                    tres pilares fundamentales.</p>
+                <div class="values-flex">
+                    <div class="value-item">
+                        <div class="value-icon"><i class="fa-solid fa-seedling"></i></div>
+                        <span>Tradición</span>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon"><i class="fa-solid fa-heart"></i></div>
+                        <span>Bienestar</span>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon"><i class="fa-solid fa-utensils"></i></div>
+                        <span>Versatilidad</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image fade-in-up">
+                <div class="image-wrapper shadow rounded">
+                    <!-- Imagen representativa de ingredientes/campo -->
+                    <img src="imagenes/sabores.jpg" alt="Ingredientes naturales artesanales" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LA EXPERIENCIA MARYMAR -->
+    <section id="experiencia" class="experiencia section bg-cream"
+        style="position: relative; background: url('imagenes/combinacionqueso.JPG') center/cover fixed;">
+        <div
+            style="position: absolute; top:0; left:0; width:100%; height:100%; background-color: rgba(255, 255, 255, 0.85); z-index: 1;">
+        </div>
+        <div class="container" style="position: relative; z-index: 2;">
+            <div class="text-center fade-in-up">
+                <span class="badge"
+                    style="background-color: var(--color-gold); color: white; padding: 0.5rem 1.2rem; border-radius: 25px; margin-bottom: 1rem; display: inline-block;">La
+                    Experiencia MaryMar</span>
+                <h2 class="section-title">Mucho más que una mermelada</h2>
+                <div class="divider center"></div>
+                <p class="section-desc">Nuestras creaciones están diseñadas para brindar una experiencia sensorial única
+                    en boca, resaltando el sabor de la cocina venezolana.</p>
+            </div>
+
+            <div class="grid exp-grid">
+                <!-- Tarjeta 1 -->
+                <article class="exp-card shadow-sm fade-in-up">
+                    <div class="exp-icon"><i class="fa-solid fa-wine-glass"></i></div>
+                    <h3>Momentos Especiales</h3>
+                    <p>El acompañante perfecto para una tarde de vino, tabla de quesos y galletas en compañía de amigos
+                        o familia.</p>
+                </article>
+                <!-- Tarjeta 2 -->
+                <article class="exp-card shadow-sm fade-in-up">
+                    <div class="exp-icon"><i class="fa-solid fa-fire-burner"></i></div>
+                    <h3>En la Cocina</h3>
+                    <p>Utilízala para realzar ensaladas, guisos y salsas innovadoras.</p>
+                </article>
+                <!-- Tarjeta 3 -->
+                <article class="exp-card shadow-sm fade-in-up">
+                    <div class="exp-icon"><i class="fa-solid fa-burger"></i></div>
+                    <h3>Platos Fuertes</h3>
+                    <p>El complemento ideal para carnes blancas, cerdo o hamburguesas gourmet.</p>
+                </article>
+                <!-- Tarjeta 4 -->
+                <article class="exp-card shadow-sm fade-in-up">
+                    <div class="exp-icon"><i class="fa-solid fa-champagne-glasses"></i></div>
+                    <h3>Catering y Eventos</h3>
+                    <p>Perfectas para reuniones familiares, corporativas, catas y celebraciones.</p>
+                </article>
+            </div>
+
+            <div class="text-center fade-in-up" style="margin-top: 4rem;">
+                <h3
+                    style="font-family: var(--font-heading); color: var(--color-vinotinto); font-style: italic; font-size: 1.8rem; letter-spacing: 0.5px;">
+                    "Atrévete a descubrir sabores innovadores y sensaciones diferentes"</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTOS -->
+    <section id="productos" class="products section">
+        <div class="container">
+            <div class="text-center fade-in-up">
+                <h2 class="section-title">Nuestros Productos</h2>
+                <div class="divider center"></div>
+                <p class="section-desc">Descubre nuestra línea de mermeladas y productos derivados con el toque
+                    inconfundible del ají dulce.</p>
+            </div>
+
+            <!-- Categoría: Mermeladas -->
+            <div class="category-header fade-in-up">
+                <h3>Mermeladas Artesanales <span class="badge">230g</span></h3>
+            </div>
+            <div class="grid products-grid">
+                <!-- Producto 1 -->
+                <article class="product-card shadow-sm fade-in-up">
+                    <div class="product-img">
+                        <img src="imagenes/original.jpg" alt="Mermelada Original" loading="lazy">
+                        <span class="product-tag">Clásico</span>
+                    </div>
+                    <div class="product-content">
+                        <h4 class="product-title">Sabor Original</h4>
+                        <div class="product-meta">
+                            <span class="weight">230g</span>
+                            <span class="price">$6.5</span>
+                        </div>
+                        <p class="product-description">El alma del ají dulce venezolano.</p>
+                        <button class="btn btn-whatsapp wp-btn" data-product="Mermelada Original (230g)"><i
+                                class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp</button>
+                    </div>
+                </article>
+                <!-- Producto 2 -->
+                <article class="product-card shadow-sm fade-in-up">
+                    <div class="product-img">
+                        <img src="imagenes/stevia.jpg" alt="Mermelada con Stevia" loading="lazy">
+                        <span class="product-tag tag-healthy">Sin Azúcar</span>
+                    </div>
+                    <div class="product-content">
+                        <h4 class="product-title">Original con Stevia</h4>
+                        <div class="product-meta">
+                            <span class="weight">230g</span>
+                            <span class="price">$6.5</span>
+                        </div>
+                        <p class="product-description">Versión saludable, orgánica y sin azúcar añadida.</p>
+                        <button class="btn btn-whatsapp wp-btn" data-product="Mermelada Original con Stevia (230g)"><i
+                                class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp</button>
+                    </div>
+                </article>
+                <!-- Producto 3 -->
+                <article class="product-card shadow-sm fade-in-up">
+                    <div class="product-img">
+                        <img src="imagenes/parchita.jpg" alt="Mermelada de Parchita" loading="lazy">
+                    </div>
+                    <div class="product-content">
+                        <h4 class="product-title">Sabor Parchita</h4>
+                        <div class="product-meta">
+                            <span class="weight">230g</span>
+                            <span class="price">$6.5</span>
+                        </div>
+                        <p class="product-description">Un toque cítrico, vibrante y nuevo sabor de la casa.</p>
+                        <button class="btn btn-whatsapp wp-btn" data-product="Mermelada de Parchita (230g)"><i
+                                class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp</button>
+                    </div>
+                </article>
+                <!-- Producto 4 -->
+                <article class="product-card shadow-sm fade-in-up">
+                    <div class="product-img">
+                        <img src="imagenes/mango.jpg" alt="Mermelada de Mango" loading="lazy">
+                    </div>
+                    <div class="product-content">
+                        <h4 class="product-title">Sabor Mango</h4>
+                        <div class="product-meta">
+                            <span class="weight">230g</span>
+                            <span class="price">$6.5</span>
+                        </div>
+                        <p class="product-description">Dulzor tropical inconfundible que resalta el aroma del ají.</p>
+                        <button class="btn btn-whatsapp wp-btn" data-product="Mermelada de Mango (230g)"><i
+                                class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp</button>
+                    </div>
+                </article>
+                <!-- Producto 5 -->
+                <article class="product-card shadow-sm fade-in-up">
+                    <div class="product-img">
+                        <img src="imagenes/tamarindo.jpg" alt="Mermelada de Tamarindo" loading="lazy">
+                    </div>
+                    <div class="product-content">
+                        <h4 class="product-title">Sabor Tamarindo</h4>
+                        <div class="product-meta">
+                            <span class="weight">230g</span>
+                            <span class="price">$6.5</span>
+                        </div>
+                        <p class="product-description">El equilibrio perfecto entre la acidez del fruto y el dulzor del
+                            ají.</p>
+                        <button class="btn btn-whatsapp wp-btn" data-product="Mermelada de Tamarindo (230g)"><i
+                                class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp</button>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Categoría: Derivados -->
+            <div class="category-header category-margin fade-in-up">
+                <h3>Derivados Exclusivos</h3>
+            </div>
+            <div class="grid products-grid">
+                <!-- Derivado 1 -->
+                <article class="product-card shadow-sm fade-in-up">
+                    <div class="product-img der-img">
+                        <img src="imagenes/ajideshidratado.jpg" alt="Ají Deshidratado" loading="lazy">
+                    </div>
+                    <div class="product-content">
+                        <h4 class="product-title">Ají Dulce Deshidratado</h4>
+                        <div class="product-meta">
+                            <span class="weight">20g</span>
+                            <span class="price">$3.0</span>
+                        </div>
+                        <p class="product-description">Un snack saludable o aperitivo crujiente 100% natural.</p>
+                        <button class="btn btn-whatsapp wp-btn" data-product="Ají Deshidratado"><i
+                                class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp</button>
+                    </div>
+                </article>
+                <!-- Derivado 2 -->
+                <article class="product-card shadow-sm fade-in-up">
+                    <div class="product-img der-img">
+                        <img src="imagenes/sabroseador.jpg" alt="Sabroseador" loading="lazy">
+                    </div>
+                    <div class="product-content">
+                        <h4 class="product-title">Sabroseador</h4>
+                        <div class="product-meta">
+                            <span class="weight">40g</span>
+                            <span class="price">$2.0</span>
+                        </div>
+                        <p class="product-description">Aliño deshidratado ideal para potenciar el sabor de tus guisos y
+                            comidas.</p>
+                        <button class="btn btn-whatsapp wp-btn" data-product="Sabroseador"><i
+                                class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp</button>
+                    </div>
+                </article>
+                <!-- Derivado 3 -->
+                <article class="product-card shadow-sm fade-in-up">
+                    <div class="product-img der-img">
+                        <img src="imagenes/barrachocolate70.jpg" alt="Barra de Chocolate" loading="lazy">
+                    </div>
+                    <div class="product-content">
+                        <h4 class="product-title">Barra de Chocolate 70%</h4>
+                        <div class="product-meta">
+                            <span class="weight">50g</span>
+                            <span class="price">$5.0</span>
+                        </div>
+                        <p class="product-description">Elaborada con Cacao Orgánico de Choroní y trozos de ají dulce
+                            MaryMar.</p>
+                        <button class="btn btn-whatsapp wp-btn" data-product="Barra de chocolate 70% con ají"><i
+                                class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp</button>
+                    </div>
+                </article>
+                <!-- Derivado 4 -->
+                <article class="product-card shadow-sm fade-in-up">
+                    <div class="product-img der-img">
+                        <img src="imagenes/pastacacao.jpg" alt="Pasta de cacao" loading="lazy">
+                    </div>
+                    <div class="product-content">
+                        <h4>Pasta de cacao</h4>
+                        <div class="product-meta">
+                            <span class="weight">Pura</span>
+                            <span class="price">$5.0</span>
+                        </div>
+                        <button class="btn btn-whatsapp wp-btn" data-product="Pasta de cacao"><i
+                                class="fa-brands fa-whatsapp"></i> Pedir por WhatsApp</button>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- COMBOS ESPECIALES -->
+    <section id="combos" class="combos section overlay-bg">
+        <div class="container relative z-10">
+            <div class="text-center fade-in-up">
+                <h2 class="section-title text-cream">Combos Especiales</h2>
+                <div class="divider center divider-light"></div>
+                <p class="section-desc text-white">Ideales para regalar, degustar en eventos o disfrutar al máximo la
+                    experiencia MaryMar.</p>
+            </div>
+
+            <div class="grid combos-grid fade-in-up">
+                <!-- Combo 1 -->
+                <div class="combo-card">
+                    <img src="imagenes/duodemermermeladas.jpg" alt="Dúo de Mermeladas"
+                        style="width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius); margin-bottom: 1.5rem;">
+                    <h3>Dúo de Mermeladas</h3>
+                    <p class="combo-desc">Lleva tus dos sabores favoritos en presentación grande.</p>
+                    <ul class="combo-includes">
+                        <li><i class="fa-solid fa-check"></i> 2 Mermeladas a elección (230g)</li>
+                    </ul>
+                    <div class="combo-price">$13.0</div>
+                    <button class="btn btn-primary wp-btn" data-product="Combo: Dúo de Mermeladas (13$)">Ordenar
+                        Duo</button>
+                </div>
+
+                <!-- Combo 2 -->
+                <div class="combo-card highlight">
+                    <div class="highlight-badge">¡El más regalado!</div>
+                    <img src="imagenes/degustaciónpequeña.jpg" alt="Degustación Pequeña"
+                        style="width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius); margin-bottom: 1.5rem;">
+                    <h3>Degustación Pequeña</h3>
+                    <p class="combo-desc">El detalle perfecto para conocer nuestra variedad.</p>
+                    <ul class="combo-includes">
+                        <li><i class="fa-solid fa-check"></i> 2 Mini mermeladas (30g)</li>
+                    </ul>
+                    <div class="combo-price">$5.0</div>
+                    <button class="btn btn-primary wp-btn"
+                        data-product="Combo: Degustación 2 Mini mermeladas (5$)">Ordenar Degustación</button>
+                </div>
+
+                <!-- Combo 3 -->
+                <div class="combo-card">
+                    <img src="imagenes/degustaciónamplia.jpg" alt="Degustación Amplia"
+                        style="width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius); margin-bottom: 1.5rem;">
+                    <h3>Degustación Amplia</h3>
+                    <p class="combo-desc">Experimenta todos los matices de MaryMar.</p>
+                    <ul class="combo-includes">
+                        <li><i class="fa-solid fa-check"></i> 4 Mini mermeladas (30g)</li>
+                    </ul>
+                    <div class="combo-price">$10.0</div>
+                    <button class="btn btn-primary wp-btn"
+                        data-product="Combo: Degustación 4 Mini mermeladas (10$)">Ordenar Degustación</button>
+                </div>
+
+                <!-- Combo Estrella -->
+                <div class="combo-card premium">
+                    <img src="imagenes/kit.jpg" alt="Kit MaryMar"
+                        style="width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius); margin-bottom: 1.5rem;">
+                    <h3>¡Kit MaryMar!</h3>
+                    <p class="combo-desc">La experiencia definitiva. Todo nuestro legado en una sola caja de lujo.</p>
+                    <ul class="combo-includes">
+                        <li><i class="fa-solid fa-check"></i> Mermelada grande (230g)</li>
+                        <li><i class="fa-solid fa-check"></i> Set de mini mermeladas</li>
+                        <li><i class="fa-solid fa-check"></i> Ají Deshidratado & Sabroseador</li>
+                        <li><i class="fa-solid fa-check"></i> Barra de chocolate & Bombones</li>
+                    </ul>
+                    <div class="combo-price text-gold">$32.0</div>
+                    <button class="btn btn-primary wp-btn w-100" data-product="¡Kit MaryMar! Completo (32$)">Ordenar el
+                        Kit Premium</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER (Contacto) -->
+    <footer id="contacto" class="footer">
+        <div class="container grid footer-grid">
+            <div class="footer-brand">
+                <a href="#inicio" class="logo text-white">Mary<span class="text-gold">Mar</span></a>
+                <p>Pasión por lo artesanal. Del campo venezolano directo a tu mesa con frescura, calidad y el
+                    incomparable sabor del ají dulce.</p>
+                <div class="social-links">
+                    <a href="https://instagram.com/apmarymar" target="_blank" aria-label="Instagram de MaryMar"><i
+                            class="fa-brands fa-instagram"></i></a>
+                    <a href="https://wa.me/584124024911" target="_blank" aria-label="WhatsApp de MaryMar"><i
+                            class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-contact">
+                <h3>Contacto y Pedidos</h3>
+                <ul class="contact-list">
+                    <li><i class="fa-brands fa-whatsapp"></i> +58 412-4024911</li>
+                    <li><i class="fa-regular fa-envelope"></i> artesaniasdelpaladarmarymar@gmail.com</li>
+                </ul>
+            </div>
+
+            <div class="footer-info">
+                <h3>Entregas</h3>
+                <ul class="contact-list">
+                    <li><i class="fa-solid fa-location-dot"></i> <strong>Pick up:</strong> Altamira, Caracas</li>
+                    <li><i class="fa-solid fa-motorcycle"></i> <strong>Delivery:</strong> En toda la ciudad</li>
+                </ul>
+            </div>
+
+            <div class="footer-payment">
+                <h3>Métodos de Pago</h3>
+                <div class="payment-methods">
+                    <span class="pay-badge"><i class="fa-solid fa-mobile-screen"></i> Pago Móvil (Banesco)</span>
+                    <span class="pay-badge"><i class="fa-solid fa-dollar-sign"></i> Zelle</span>
+                    <span class="pay-badge"><i class="fa-solid fa-money-bill"></i> Efectivo</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container text-center">
+                <p>&copy; 2026 MaryMar Mermeladas Artesanales. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
