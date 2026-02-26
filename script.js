@@ -132,13 +132,25 @@ document.addEventListener('DOMContentLoaded', () => {
     cartModal.addEventListener('click', (e) => {
         if (e.target === cartModal) cartModal.classList.remove('show');
     });
-
     // Añadir al Carrito
     addButtons.forEach(button => {
         button.addEventListener('click', function (e) {
             e.preventDefault();
-            const product = this.getAttribute('data-product');
+            let product = this.getAttribute('data-product');
             const price = parseFloat(this.getAttribute('data-price'));
+
+            // Check if there are select elements nearby
+            const card = this.closest('.combo-card');
+            if (card) {
+                const selectors = card.querySelectorAll('.combo-select');
+                if (selectors.length > 0) {
+                    const flavors = Array.from(selectors).map(sel => sel.value);
+                    const flavorsText = flavors.length === 2
+                        ? `${flavors[0]} y ${flavors[1]}`
+                        : flavors.map((f, i) => i === flavors.length - 1 ? `y ${f}` : f).join(', ');
+                    product += ` (${flavorsText})`;
+                }
+            }
 
             // Buscar si ya existe
             const existingItem = cart.find(item => item.product === product);
